@@ -1,0 +1,41 @@
+<% 
+let height = "";
+if (index==undefined) {
+    height = "600"
+}else{
+    const mod = index % 10;
+    if (mod===0) {
+        height = "600";
+    }else{
+        height = "60"+mod;
+    }
+}
+
+var oneBlogLink = "/blogs/" + blog.id;
+var currentdate = new Date();
+var datetime = "Last Sync: " + currentdate.getDay() + "/" + currentdate.getMonth() 
++ "/" + currentdate.getFullYear() + " @ " 
++ currentdate.getHours() + ":" 
++ currentdate.getMinutes() + ":" + currentdate.getSeconds();
+%> 
+
+<div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="https://source.unsplash.com/random/800x <%= height %> " alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="content">
+        <%= blog.title.rendered %> <br>
+        <a  href="https://www.instagram.com/nijatmansimov/" target="_blank">@nijatmansimov</a>.
+        <p><%- index==undefined ? blog.content.rendered : blog.excerpt.rendered.slice(0, 50) %> </p><br>
+        
+        <% if (index!==undefined) { %>
+            <a href=<%= oneBlogLink %> >Read more</a><br>
+            <p><%- datetime %> </p>
+        <% } %>
+        
+      </div>
+    </div>
+  </div>

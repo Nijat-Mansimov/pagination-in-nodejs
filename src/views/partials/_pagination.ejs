@@ -1,0 +1,22 @@
+<% 
+
+const active = activePage1;
+const ago = active - 1;
+const next = parseInt(active) + 1;
+const pages = totalPage;
+
+%> 
+
+<nav class="pagination" role="navigation" aria-label="pagination">
+    <a <%= active != 1 ? 'href=/?page='+ago: '' %>  class="pagination-previous <%= activePage1 == 1 ? "is-disabled" : "is-enable" %> " title="This is the first page">Previous</a>
+    <a <%= active!= pages ? 'href=/?page='+next: '' %> class="pagination-next" <%= activePage1 == pages ? "is-disabled" : "is-enable" %>>Next page</a>
+    <ul class="pagination-list">
+
+        <% for( let index = 1; index <= totalPage; index++ ) { %>
+            <li>
+                <a href="/?page=<%= index %>  " class="pagination-link <%= index==activePage1 ? "is-current" : "" %> " aria-label="Goto page "><%- index %> </a>
+            </li>
+        <% } %>
+       
+    </ul>
+  </nav>

@@ -1,0 +1,10 @@
+.navbar-item img{
+    width: 82px;
+    height: 82px;
+    min-height: 82px;
+}
+
+#search{
+    margin-top: 12px;
+    margin-right: 5px;
+}

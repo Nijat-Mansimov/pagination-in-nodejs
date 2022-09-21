@@ -1,0 +1,23 @@
+<%- include("../partials/_header") %>
+
+<div class="columns is-multiline">
+  <% blogs.forEach((blog, index) => { %>
+    <div class="column is-4">
+        <%- include("../partials/_blogCard", {blog, index}) %>
+    </div>
+    <% }) %>
+</div>
+
+<!-- PAGINITION -->
+
+<% 
+const totalPage = paginationDetails["x-wp-totalpages"];
+const totalData = paginationDetails["x-wp-total"];
+const activePage1 = activePage;
+
+console.log(totalPage, totalData);
+%> 
+
+<div class="block"></div>
+<%- include("../partials/_pagination", {totalData, totalPage, activePage1}) %> 
+<div class="block"></div>
